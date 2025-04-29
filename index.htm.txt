@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DIU CGPA Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>DIU CGPA Calculator</h1>
+    <p>Calculate your CGPA easily based on DIU course credits</p>
+  </header>
+
+  <main>
+    <form id="cgpaForm">
+      <div class="course">
+        <label>Course 1:</label>
+        <input type="number" placeholder="Credit" class="credit" required />
+        <select class="grade">
+          <option value="4.0">A+</option>
+          <option value="3.75">A</option>
+          <option value="3.5">A-</option>
+          <option value="3.25">B+</option>
+          <option value="3.0">B</option>
+          <option value="2.75">B-</option>
+          <option value="2.5">C+</option>
+          <option value="2.25">C</option>
+          <option value="2.0">D</option>
+          <option value="0">F</option>
+        </select>
+      </div>
+      <button type="button" onclick="addCourse()">Add More Course</button>
+      <button type="submit">Calculate CGPA</button>
+    </form>
+    <h2 id="result"></h2>
+  </main>
+
+  <footer>
+    <p>© 2025 Daffodil International University</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

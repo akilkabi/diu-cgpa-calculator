@@ -1,0 +1,39 @@
+function addCourse() {
+  const form = document.getElementById("cgpaForm");
+  const newCourse = document.createElement("div");
+  newCourse.className = "course";
+  newCourse.innerHTML = `
+    <label>Course:</label>
+    <input type="number" placeholder="Credit" class="credit" required />
+    <select class="grade">
+      <option value="4.0">A+</option>
+      <option value="3.75">A</option>
+      <option value="3.5">A-</option>
+      <option value="3.25">B+</option>
+      <option value="3.0">B</option>
+      <option value="2.75">B-</option>
+      <option value="2.5">C+</option>
+      <option value="2.25">C</option>
+      <option value="2.0">D</option>
+      <option value="0">F</option>
+    </select>`;
+  form.insertBefore(newCourse, form.lastElementChild.previousElementSibling);
+}
+
+document.getElementById("cgpaForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const credits = document.querySelectorAll(".credit");
+  const grades = document.querySelectorAll(".grade");
+  let totalCredit = 0;
+  let totalPoint = 0;
+
+  for (let i = 0; i < credits.length; i++) {
+    const credit = parseFloat(credits[i].value);
+    const grade = parseFloat(grades[i].value);
+    totalCredit += credit;
+    totalPoint += credit * grade;
+  }
+
+  const cgpa = (totalPoint / totalCredit).toFixed(2);
+  document.getElementById("result").innerText = `Your CGPA is: ${cgpa}`;
+});
